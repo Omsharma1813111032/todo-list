@@ -8,11 +8,7 @@ function TaskList(props){
 
             <Table striped bordered hover>
                 <tbody>
-                    <TaskRow typ={props.typ}  task={props.task}/>   
-                    <TaskRow typ={props.typ}  task={props.task}/>   
-                    <TaskRow typ={props.typ}  task={props.task}/>   
-                    <TaskRow typ={props.typ}  task={props.task}/>   
-                    <TaskRow typ={props.typ}  task={props.task}/>   
+                    <TaskRow typ={props.typ} key={props.key} dlt={props.dlt} identity={props.identity} task={props.task}/>
                 </tbody>
             </Table>
 
