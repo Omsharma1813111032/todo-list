@@ -8,13 +8,18 @@ import TaskList from "./TaskList";
 
 function TaskProps(){
 
-    const[list,setDeletedList] = useState(data);
+    const[list,SetUpdatedList] = useState(data);
 
+    const SearcResult = (event) =>{
+        const value = event.target.value;
+        const newList = list.filter((dt)=>(dt.task.includes(value)))
+        SetUpdatedList(newList);
+    }
 
 
     const DeleteHandle = (id) =>{
         const newList = list.filter((dt)=>dt.id!==id); 
-        setDeletedList(newList);
+        SetUpdatedList(newList);
     }
 
 
@@ -22,7 +27,7 @@ function TaskProps(){
         <>
 
             {list.map((item)=>(
-                <TaskList typ="checkbox" key={item.id} dlt={()=>DeleteHandle(item.id)} identity={item.id} task={item.task} />
+                <TaskList typ="checkbox" key={item.id} search={SearcResult} dlt={()=>DeleteHandle(item.id)} identity={item.id} task={item.task} />
             ))}
 
 
